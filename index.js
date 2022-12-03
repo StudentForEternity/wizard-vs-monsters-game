@@ -8,15 +8,6 @@ function getNewMonster() {
     return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
-/*
-Challenge
-1. Add a pause of 1 second between a monster dying and
-another monster taking it's place.
-2. Add a pause of 1.5 seconds between the last monster 
-or the wizard dying, and the endMessage being displayed.
-*/
-
-
 function attack() {
     wizard.getDiceHtml()
     monster.getDiceHtml()
@@ -25,16 +16,20 @@ function attack() {
     render()
     
     if(wizard.dead){
+       setTimeout(() => {
         endGame()
+       }, 1500); 
     }
     else if(monster.dead){
-        if(monstersArray.length > 0){
-            monster = getNewMonster()
-            render()
-        }
-        else{
-            endGame()
-        }
+        setTimeout(() => {
+            if(monstersArray.length > 0){
+                monster = getNewMonster()
+                render()
+            }
+            else{
+                endGame()
+            }
+        }, 1500);
     }
 }
 
