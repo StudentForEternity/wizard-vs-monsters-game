@@ -9,8 +9,8 @@ function getNewMonster() {
 }
 
 function attack() {
-    wizard.getDiceHtml()
-    monster.getDiceHtml()
+    wizard.setDiceHtml()
+    monster.setDiceHtml()
     wizard.takeDamage(monster.currentDiceScore)
     monster.takeDamage(wizard.currentDiceScore)
     render()
@@ -41,8 +41,8 @@ function attack() {
 function endGame() {
     const endMessage = wizard.health === 0 && monster.health === 0 ?
             "No victors - all creatures are dead" :
-            wizard.health > 0 ? "The Wizard Wins" :
-                "The Orc is Victorious"
+            wizard.health > 0 ? "The Wizard Wins!" :
+                `The ${monster.name} is Victorious!`
 
     const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
     
