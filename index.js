@@ -16,18 +16,22 @@ function attack() {
     render()
     
     if(wizard.dead){
+        document.querySelector('#attack-button').disabled = true;
         endGame()
     }
 
     else if(monster.dead){
+        document.querySelector('#attack-button').disabled = true;
         
             if(monstersArray.length > 0){
                 setTimeout(() => {
                     monster = getNewMonster()
                     render()
+                    document.querySelector('#attack-button').disabled = false;
                 }, 1500); 
             }
             else{
+                document.querySelector('#attack-button').disabled = true;
                 endGame()
             }
         
