@@ -41,8 +41,8 @@ function attack() {
 function endGame() {
     const endMessage = wizard.health === 0 && monster.health === 0 ?
             "No victors - all creatures are dead" :
-            wizard.health > 0 ? "The Wizard Wins!" :
-                `The ${monster.name} is Victorious!`
+            wizard.health > 0 ? "Congradulations, The Wizard Wins." :
+                `Better luck next time, The ${monster.name} is Victorious.`
 
     const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
     
